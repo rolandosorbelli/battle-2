@@ -3,6 +3,7 @@ require 'sinatra/base'
 require 'shotgun'
 require 'rack'
 require './lib/player'
+require './lib/game'
 
 class Battle < Sinatra::Base
 
@@ -13,7 +14,6 @@ class Battle < Sinatra::Base
   end
 
   post '/names' do
-    # session[:hp2] = 100
     $player1 = params['player1']
     $player2 = params['player2']
     session[:display] = false
@@ -21,16 +21,12 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    # @hp1 = 100
-    # @hp2 = session[:hp2]
-    # @player1 = session[:player1]
-    # @player2 = session[:player2]
     @display = session[:display]
     erb :play
   end
 
-  post '/attack' do
-    $hp2 -= 20
+ post '/attack' do
+    Game.attack
     session[:display] = true
     redirect to('/play')
   end

@@ -4,7 +4,7 @@ require_relative '../../app.rb'
 
     scenario 'Can run app and check page content' do
       visit('/')
-      expect(page).to have_content 'Testing infrastructure working!'
+      expect(page).to have_content "Let's battle!"
     end
 
     scenario "Can enter names and see them on the screen" do
