@@ -8,11 +8,14 @@
 <br></br>
 
 <form action= "/attack" method="post">
-<input type="submit" value="Attack!">
+<input type="submit" value="Attack">
+<input type="submit" value="Fire">
+<input type="submit" value="Blizzard">
+<input type="submit" value="Thunder">
 </form>
 
 <% if session[:display] %>
-<p>-20 HP!</p>
+<p>- <%= "#{@reduction}" %> HP!</p>
 <% if $game.turn == 2 ; current = $game.player2.player else current = $game.player1.player end%>
 <p><%= "#{current} has been attacked! It's super effective!" %></p>
 <% session[:display] = false %>

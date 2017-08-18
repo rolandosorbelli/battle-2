@@ -6,7 +6,6 @@ require './lib/player'
 require './lib/game'
 
 class Battle < Sinatra::Base
-
   enable :sessions
 
   get '/' do
@@ -23,14 +22,15 @@ class Battle < Sinatra::Base
 
   get '/play' do
     @display = session[:display]
+    @reduction = session[:reduction]
     erb :play
   end
 
- post '/attack' do
-    $game.attack
+  post '/attack' do
+    session[:reduction] = $game.attack
     session[:display] = true
     redirect to('/play')
   end
 
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end
