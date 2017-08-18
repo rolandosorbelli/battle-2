@@ -1,8 +1,15 @@
 class Game
 
-	def self.attack
+	attr_accessor :player1, :player2
 
-		$hp2 -= 20
+	def initialize(player1, player2)
+		@player1 = player1
+		@player2 = player2
+	end
+
+	def attack
+
+		@player2.hp -= 20
 
 	end
 

@@ -1,9 +1,9 @@
 
-<%="Player 1 is #{$player1} / HP: #{$hp1}"%>
+<%="Player 1 is #{$game.player1.player} / HP: #{$game.player1.hp}"%>
 
 <br></br>
 
-<%="Player 2 is #{$player2} / HP: #{$hp2}"%>
+<%="Player 2 is #{$game.player2.player} / HP: #{$game.player2.hp}"%>
 
 <br></br>
 
@@ -13,6 +13,6 @@
 
 <% if session[:display] %>
 <p>-20 HP!</p>
-<p><%= "#{$player2} has been attacked! It's super effective!" %></p>
+<p><%= "#{$game.player2.player} has been attacked! It's super effective!" %></p>
 <% session[:display] = false %>
 <% end %>
