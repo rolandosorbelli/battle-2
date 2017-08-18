@@ -1,9 +1,9 @@
 
-<%="Player 1 is #{$game.player1.player} / HP: #{$game.player1.hp}"%>
+<%="#{$game.player1.player} / HP: #{$game.player1.hp}"%>
 
 <br></br>
 
-<%="Player 2 is #{$game.player2.player} / HP: #{$game.player2.hp}"%>
+<%="#{$game.player2.player} / HP: #{$game.player2.hp}"%>
 
 <br></br>
 
@@ -13,6 +13,7 @@
 
 <% if session[:display] %>
 <p>-20 HP!</p>
-<p><%= "#{$game.player2.player} has been attacked! It's super effective!" %></p>
+<% if $game.turn == 2 ; current = $game.player2.player else current = $game.player1.player end%>
+<p><%= "#{current} has been attacked! It's super effective!" %></p>
 <% session[:display] = false %>
 <% end %>

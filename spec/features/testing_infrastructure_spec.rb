@@ -31,4 +31,17 @@ require_relative '../../app.rb'
       expect(page). to have_content "Will has been attacked! It's super effective!"
     end
 
+    scenario "Checks if the first round is 2" do
+      sign_in_and_play
+      click_button("Attack!")
+      expect($game.turn).to eq(2)
+    end
+
+    scenario "Checks if the second round is 1" do
+      sign_in_and_play
+      click_button("Attack!")
+      click_button("Attack!")
+      expect($game.turn).to eq(1)
+    end
+
   end
